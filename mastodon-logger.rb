@@ -203,7 +203,7 @@ class MastodonLogger
     return unless status
     logger.info(PROG_NAME) do
       account = status['account'] || {}
-      "Save status: #{status['id']} #{status['created_at']} #{account['username']} #{status['content']}"
+      "Save status: #{status['id']} \e[2m#{status['created_at']}\e[m \e[33m#{account['acct']}\e[m \e[1m#{status['content']}\e[m"
     end
     if status.key?('id') && status.key?('created_at')
       date = status['created_at'][/\A\d+-\d+-\d+/]
